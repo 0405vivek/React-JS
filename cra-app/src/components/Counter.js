@@ -1,12 +1,12 @@
 import {Component, Componet} from 'react'
 
 class Counter extends Component{
-    constructor(){
-        super();
-        this.state = ({
-            count : 0,
-            name : "Vivek Prajpati"            
-        })
+    constructor(props){
+        super(props);
+        // this.state = ({
+        //     count : 0,
+        //     name : "Vivek Prajpati"            
+        // })
     }
 
     handlclick(){
@@ -26,7 +26,9 @@ class Counter extends Component{
         return(
             <div>
                 <h1>Vivek Prajapati</h1>
-                <p>Count : {this.state.count}</p>
+                <p>Count : {this.props.name}</p>
+                <p>Count : {this.props.cours}</p>
+                <p>Count : {this.props.Time}</p>
                 <button onClick={()=>this.handlclick()}>Count++</button>
                 <button onClick={()=>this.diclick()}>Count--</button>
             </div>
@@ -34,4 +36,13 @@ class Counter extends Component{
     }
 }
 
+
+
 export default Counter;
+
+export class Button extends Component{
+    constructor(){
+        super();
+        <button>{this.props.Click}</button>
+    }
+}

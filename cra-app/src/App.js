@@ -1,3 +1,4 @@
+
 import logo from './logo.svg';
 import './App.css';
 import Counter from './components/Counter';
@@ -10,7 +11,7 @@ function App() {
       <Hello/>
       <Hello/>
       <Hello/>
-      <Counter />
+      <Counter name = "vivek" cours= "FSD" Time = {9} />
     </div>
   );
 }
