@@ -1,0 +1,11 @@
+# 1. Create your Vite + React project
+npm create vite@latest my-react-app
+
+# 2. Navigate into your new project folder
+cd my-react-app
+
+# 3. Install dependencies
+npm install
+
+# 4. Run the development server
+npm run dev
