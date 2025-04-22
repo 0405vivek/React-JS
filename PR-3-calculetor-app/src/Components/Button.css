@@ -26,7 +26,10 @@
     align-items: center;
   }
   
-  
+  header{
+    justify-content: center;
+    top:0%;
+  }
   .calculator {
     background: white;
     padding: 18px;
@@ -69,4 +72,16 @@
   .button-grid button:hover {
     background-color: var(--button-hover);
   }
+  .clear-button {
+    grid-column: span 4; 
+    background-color: #e74c3c;
+  }
+  
+  .clear-button:hover {
+    background-color: #c0392b;
+  }
+  .eq-btn{
+    height: 100%;
+  }
+  
   

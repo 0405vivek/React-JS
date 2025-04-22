@@ -4,7 +4,7 @@ import { useState } from "react";
 import './Button.css'; 
 
 const Button = () => {
-  const [list] = useState(['.',0,1, 2, 3, 4, 5, 6, 7, 8, 9, '+', '-', '*', '/']);
+  const [list] = useState(['+', '-', '*', '/',,9,8,7,6,5,4,3,2,1,0,'.' ]);
   const [input, setInput] = useState('');
 
   const handleClick = (value) => {
@@ -25,18 +25,23 @@ const Button = () => {
   };
 
   return (
+    <>
+    <header>
+    <h1>Calculator APP</h1>
+    </header>
     <div className="calculator">
       <input type="text" value={input} readOnly />
       <div className="button-grid">
+      <button onClick={handleClear} className="clear-button">Clear</button>
         {list.map((item, index) => (
           <button onClick={() => handleClick(item)} key={index}>
             {item}
           </button>
         ))}
-        <button onClick={handleEvaluate}>=</button>
-        <button onClick={handleClear}>Clear</button>
+        <button className="eq-btn" onClick={handleEvaluate}>=</button>
       </div>
     </div>
+    </>
   );
 };
 
