@@ -4,11 +4,11 @@ import { useState } from "react";
 import './Button.css'; 
 
 const Button = () => {
-  const [list] = useState(['+', '-', '*', '/',,9,8,7,6,5,4,3,2,1,0,'.' ]);
+  const [list] = useState(['7','8','9','+','4','5','6','-','1','2','3','*','.','0','/']);
   const [input, setInput] = useState('');
 
-  const handleClick = (value) => {
-    setInput(prev => prev + value);
+  const handleClick = (val) => {
+    setInput(prev => prev + val);
   };
 
   const handleClear = () => {
@@ -16,12 +16,10 @@ const Button = () => {
   };
 
   const handleEvaluate = () => {
-    try {
+  
       const result = eval(input);
       setInput(result.toString());
-    } catch (error) {
-      setInput('Error');
-    }
+  
   };
 
   return (
