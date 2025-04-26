@@ -1,5 +1,5 @@
 {
-  "name": "pr-3-calculetor-app",
+  "name": "form-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@mui/material": "^7.0.2",
+    "framer-motion": "^12.8.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-icon": "^1.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
