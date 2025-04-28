@@ -25,16 +25,16 @@ const FeedbackForm = () => {
     let errorList = {};
 
     if (inputForm.username.trim() === "") {
-      errorList.username = "👤 Please enter your name to continue!";
+      errorList.username = " Please enter your name to continue!";
     }
     if (inputForm.email.trim() === "") {
-      errorList.email = "📨 We need your email to stay in touch!";
+      errorList.email = " We need your email to stay in touch!";
     }
     if (inputForm.message.trim() === "") {
-      errorList.message = "💬 Your feedback is valuable - please share your thoughts!";
+      errorList.message = " Your feedback is valuable - please share your thoughts!";
     }
     if (inputForm.rating === 0) {
-      errorList.rating = "🌟🌟🌟🌟🌟 Please rate your experience (click 1-5 stars)!";
+      errorList.rating = " Please rate your experience (click 1-5 stars)!";
     }
 
     setErrors(errorList);
