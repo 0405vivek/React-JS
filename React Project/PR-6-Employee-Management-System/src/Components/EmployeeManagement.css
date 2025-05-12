@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: #f5f7fa;
+}
+
+.employee-card {
+  transition: transform 0.2s ease;
+}
+.employee-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+button.btn-info {
+  color: #fff;
+  background-color: #3498db;
+  border-color: #3498db;
+}
+
+button.btn-info:hover {
+  background-color: #2980b9;
+}
