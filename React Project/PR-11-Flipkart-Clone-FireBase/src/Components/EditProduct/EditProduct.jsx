@@ -21,20 +21,25 @@ const EditProduct = () => {
   const [form, setForm] = useState({
     id: "",
     name: "",
-    desc: "",
     price: "",
+    brand: "",
+    category: "",
     image: "",
-    category: ""
+    rating: "",
+    description: "",
   });
 
+  // Fetch product details by ID
   useEffect(() => {
     dispatch(getProductAsync(id));
   }, [id]);
 
+  // Fill form with product data
   useEffect(() => {
     if (product) setForm(product);
   }, [product]);
 
+  // Navigate on successful update
   useEffect(() => {
     if (isUpdated) navigate("/");
   }, [isUpdated]);
@@ -82,12 +87,41 @@ const EditProduct = () => {
             </FloatingLabel>
           </Col>
 
+          <Col md={6}>
+            <FloatingLabel label="Brand">
+              <Form.Control
+                type="text"
+                name="brand"
+                value={form.brand}
+                onChange={handleChange}
+                placeholder="Enter brand"
+                required
+              />
+            </FloatingLabel>
+          </Col>
+
+          <Col md={6}>
+            <FloatingLabel label="Rating (0-5)">
+              <Form.Control
+                type="number"
+                name="rating"
+                value={form.rating}
+                onChange={handleChange}
+                placeholder="Enter rating"
+                min="0"
+                max="5"
+                step="0.1"
+                required
+              />
+            </FloatingLabel>
+          </Col>
+
           <Col md={12}>
             <FloatingLabel label="Product Description">
               <Form.Control
                 as="textarea"
-                name="desc"
-                value={form.desc}
+                name="description"
+                value={form.description}
                 onChange={handleChange}
                 placeholder="Enter product description"
                 style={{ height: "100px" }}
