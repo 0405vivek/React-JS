@@ -13,7 +13,8 @@ const ProductScrollList = ({
 }) => {
   return (
     <div className="bg-white py-4 my-2 mx-2">
-      <div className="horizontal-scroll d-flex gap-3 px-2">
+      <div className="horizontal-scroll d-flex gap-3 px-2"
+           style={{ gap: "20px", overflowX: "auto" }}>
         {filteredProducts.map((product) => (
           <div
             className="product-card border rounded shadow-sm p-2"
@@ -79,7 +80,7 @@ const ProductScrollList = ({
               <p className="fw-bold text-primary mb-1 mt-2">₹{product.price}</p>
 
               {/* Add to Cart (Optional) */}
-              {/* <div className="d-grid">
+               <div className="d-grid">
                 <button
                   className="btn btn-sm btn-outline-primary"
                   onClick={(e) => {
@@ -89,7 +90,7 @@ const ProductScrollList = ({
                 >
                   Add to Cart
                 </button>
-              </div> */}
+              </div> 
             </div>
           </div>
         ))}

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { Button, Container, Row, Col } from 'react-bootstrap';
 import { BsCart3 } from 'react-icons/bs';
-import {  FaEye } from 'react-icons/fa'; 
-
+import { FaEye } from 'react-icons/fa';
 import {
   getAllProductsAsync,
   addToCart,
@@ -66,7 +65,6 @@ const AllProducts = ({ searchQuery }) => {
     dispatch(addToCart(product));
   };
 
-
   return (
     <div className="bg-white py-4 my-2 mx-2">
       <h2 className="text-center mb-4">
@@ -89,50 +87,46 @@ const AllProducts = ({ searchQuery }) => {
         </select>
       </div>
 
-      <div className="horizontal-scroll">
-        {filteredProducts.length ? (
-          filteredProducts.map((product) => (
-            <div className="product-card" key={product.id}>
-              <div className="image-wrapper">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="product-image"
-                />
-                <div className="action-buttons d-flex flex-column">
-                  
+      <Container>
+        <Row className="justify-content-center">
+          {filteredProducts.length ? (
+            filteredProducts.map((product) => (
+              <Col key={product.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
+                <div className="product-card">
+                  <div className="image-wrapper">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="product-image"
+                    />
+                    <div className="action-buttons d-flex flex-column">
+                      <button
+                        className="icon-btn view-btn"
+                        onClick={() => navigate(`/product/${product.id}`)}
+                      >
+                        <FaEye className="fs-5" style={{ color: '#157347' }} />
+                      </button>
+                    </div>
+                  </div>
 
-                  <button
-                    className="icon-btn view-btn"
-                    onClick={() => navigate(`/product/${product.id}`)}
-                  >
-                    <FaEye className="fs-5" style={{ color: '#157347' }} />
-                  </button>
-
+                  <div className="product-details">
+                    <h3 className="product-title">{product.name}</h3>
+                    <p className="product-price">₹{product.price}</p>
+                    <Button
+                      variant="success"
+                      onClick={() => handleAddToCart(product)}
+                    >
+                      Add To Cart <BsCart3 className="fs-6 ms-1" />
+                    </Button>
+                  </div>
                 </div>
-              </div>
-
-              <div className="product-details">
-                <h3 className="product-title">{product.name}</h3>
-                <p className="product-desc" title={product.desc}>
-                  {/* {product.desc.length > 60
-                    ? product.desc.slice(0, 60) + '...'
-                    : product.desc} */}
-                </p>
-                <p className="product-price">₹{product.price}</p>
-                <Button
-                  variant="success"
-                  onClick={() => handleAddToCart(product)}
-                >
-                  Add To Cart <BsCart3 className="fs-6 ms-1" />
-                </Button>
-              </div>
-            </div>
-          ))
-        ) : (
-          <p className="text-center">No products found.</p>
-        )}
-      </div>
+              </Col>
+            ))
+          ) : (
+            <p className="text-center">No products found.</p>
+          )}
+        </Row>
+      </Container>
     </div>
   );
 };
