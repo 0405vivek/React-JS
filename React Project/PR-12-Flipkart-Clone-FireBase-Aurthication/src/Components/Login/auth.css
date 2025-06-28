@@ -1,0 +1,45 @@
+.auth-background {
+  background: url("https://images.unsplash.com/photo-1606761561326-c78c12474bd1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80")
+    no-repeat center center fixed;
+  background-size: cover;
+}
+
+.auth-card {
+  max-width: 400px;
+  width: 100%;
+  border: none;
+  border-radius: 1rem;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+/* Make input text dark for readability */
+.glass-effect input {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #000 !important;
+  border: 1px solid #ccc !important;
+}
+
+.glass-effect input::placeholder {
+  color: #666 !important;
+}
+
+/* Fix label visibility */
+.glass-effect label {
+  color: #fff;
+}
+
+/* Tabs */
+.glass-effect .nav-link {
+  color: #fff !important;
+}
+
+.glass-effect .nav-link.active {
+  background-color: rgba(0, 123, 255, 0.7) !important;
+  color: #fff !important;
+}
