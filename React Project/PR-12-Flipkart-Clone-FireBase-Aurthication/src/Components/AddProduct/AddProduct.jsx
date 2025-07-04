@@ -7,13 +7,14 @@ import {
   Col,
   FloatingLabel,
 } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { addNewProductAsync } from '../../Services/Actions/productAction';
 
 const AddProductForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { isAuthenticated } = useSelector((state) => state.authReducer);
 
   const [product, setProduct] = useState({
     name: "",
@@ -48,6 +49,13 @@ const AddProductForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (!isAuthenticated) {
+      alert("Please login to add a product.");
+      navigate("/login");
+      return;
+    }
+
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
@@ -68,7 +76,7 @@ const AddProductForm = () => {
       <h2 className="mb-4">Add New Product</h2>
       <Form onSubmit={handleSubmit}>
         <Row className="g-3">
-          <Col md={6}>
+         <Col md={6}>
             <FloatingLabel label="Product Name">
               <Form.Control
                 type="text"
@@ -178,6 +186,7 @@ const AddProductForm = () => {
               </Form.Control.Feedback>
             </FloatingLabel>
           </Col>
+        
         </Row>
 
         <Button type="submit" variant="primary" className="mt-4">

@@ -13,11 +13,11 @@ const ProductScrollList = ({
 }) => {
   return (
     <div className="bg-white py-4 my-2 mx-2">
-      <div className="horizontal-scroll d-flex gap-3 px-2"
+      <div className="horizontal-scroll d-flex   justify-content-center align-items-center flex-wrap "
            style={{ gap: "20px", overflowX: "auto" }}>
         {filteredProducts.map((product) => (
           <div
-            className="product-card border rounded shadow-sm p-2"
+            className="product-card border rounded shadow-sm p-2 m-3"
             key={product.id}
             onClick={() => handleCategoryClick(product.category)}
             style={{
@@ -27,7 +27,7 @@ const ProductScrollList = ({
             }}
           >
             {/* Product Image + Hover Action Buttons */}
-            <div className="image-wrapper position-relative">
+            <div className="card-image position-relative">
               <img
                 src={product.image}
                 alt={product.name}
